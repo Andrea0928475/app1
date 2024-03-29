@@ -58,7 +58,7 @@ with col1:
         'Which age group would you like your content to target?',
         ('9-15', '16-19', '20-29', '30-39', '40-49', '50-59', '60-69', '70-79', '80-100'))
     
-def get_hobby():
+def get_profession():
     input_text = st.text_input(label="Customers profession", key="profession_input")
     return input_text
 
@@ -89,7 +89,7 @@ if content_input:
 
     llm = load_LLM(openai_api_key=openai_api_key)
 
-    prompt_with_content = prompt.format(agegroup=option_agegroup, hobby=hobby_input, content=content_input)
+    prompt_with_content = prompt.format(agegroup=option_agegroup, profession=profession_input, content=content_input)
 
     formatted_content = llm(prompt_with_content)
 
